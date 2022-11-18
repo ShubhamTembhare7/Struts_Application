@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+
+<struts-config>
+    <form-beans>
+    <form-bean name="RF" type="com.yash.form.UserForm"></form-bean>
+     <form-bean name="EmpForm" type="com.yash.form.Employee"></form-bean>
+     <form-bean name="DF" type="com.yash.form.DeleteAndUpdateForm"></form-bean>
+      <form-bean name="userupload" type="com.yash.form.User"></form-bean>
+        
+    </form-beans>
+
+
+
+   <global-exceptions>
+   <exception 
+     key="error.arithmetic.zero.divide"
+     type="java.lang.ArithmeticException"
+     path="/error.jsp"
+      /> 
+    <exception key="error.salary.invalid"
+           type="com.yash.exception.SalaryInvalidExcption"
+           handler="com.yash.handler.SalaryInvalidExceptionHandler"
+           path="/salaryInvalid.jsp"/>  
+     
+
+   </global-exceptions>
+   <global-forwards>
+   </global-forwards>
+   <action-mappings>
+        <action path="/reg" name="RF" type="com.yash.action.UserAction">  
+        <forward name="success" path="/success.jsp"/>
+        <forward name="failure" path="/failure.jsp"/>
+        </action>
+        <action path="/peg" type="com.yash.action.PagerAction">
+        <forward name="success" path="/success.jsp"></forward>
+        </action>
+        <action path="/del" name="DF" type="com.yash.action.EmployeeDelete">
+        <forward name="success" path="/success.jsp"></forward>
+        
+        </action>
+        
+          <action path="/EmployeeUpdate" name="RF" type="com.yash.action.EmployeeUpdate">
+ 	  <forward name="update" path="/employeeDisplay.jsp" ></forward> 
+ 	  </action>
+ 	  
+
+ 	  
+ 	  <action path="/EmployeeUpdateorInsert" type="com.yash.action.EmployeeUpdateorInsert">
+ 	  <forward name="success" path="/success.jsp" ></forward> 
+ 	  </action>
+ 	  
+ 	 <action path="/dis" name="DF"  type="com.yash.action.DispatchActn" parameter="n1">
+            <forward name="success" path="/success.jsp" />
+        </action>
+        
+       <!--   <action path="/addemp" name="EmpForm" type="com.yash.action.EmployeeInsertAction" validate="true" input="/employeeInsert.jsp">
+ 	  <forward name="success" path="/employeeDisplay.jsp" ></forward> 
+ 	  </action> -->
+ 	  <action path="/addemp" name="EmpForm" type="com.yash.action.EmployeeInsertAction" validate="true" input="/employeeInsert.jsp">
+ 	  <forward name="success" path="/employeeDisplay1.jsp" ></forward> 
+ 	  </action>
+        <action path="/lact" type="org.apache.struts.actions.ForwardAction" parameter="/success.jsp"></action>
+        
+          
+ 	  <action path="/clang" type="com.yash.action.LocaleAction">
+ 	  <forward name="success" path="/employeeInsert.jsp" ></forward> 
+ 	  </action>
+ 	  
+ 	   <action path="/upload" name="userupload" type="com.yash.action.UploadAction">
+ 	  <forward name="success" path="/fileDisplay.jsp" ></forward> 
+ 	  </action>
+ 	  
+ 	  
+ 	  
+ 	  <!-- action path="/clayout" parameter="method" type="com.yash.action.layoutAction">
+ 	  <forward name="body" path="blayout" ></forward> 
+ 	  <forward name="mody" path="mlayout" ></forward> 
+ 	  </action>
+ 	   -->
+ 	  
+ 	   <action path="/clayout" parameter="method" type="com.yash.action.layoutAction">
+ 	  <forward name="body" path="blayout" ></forward> 
+ 	  <forward name="display" path="mlayout" ></forward> 
+ 	  <forward name="insert" path="ilayout" ></forward> 
+ 	  </action>
+    </action-mappings>
+
+
+<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+    <message-resources parameter="application"></message-resources>
+    
+
+
+
+   <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config"
+            value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+
+
+   <!-- ========================= Validator plugin ================================= -->
+    <plug-in
+        className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+    </plug-in>
+
+</struts-config>

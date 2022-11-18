@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+<!-- definition name="layout" path="/tiles/layout.jsp">        
+        <put name="header" value="/tiles/header.jsp" />        
+        <put name="footer" value="/tiles/footer.jsp" />
+        <put name="menu" value="/tiles/menu.jsp" />
+        <put name="body"   value="/tiles/body.jsp" />
+        <put name="title"   value="Demo application for Tiles" />
+    </definition> -->
+    <!-- 
+     <definition name="blayout" extends="layout">        
+        <put name="body" value="/tiles/body.jsp" />   
+        <put name="heading" value="Display Body Section" />      
+        </definition>
+        
+         <definition name="mlayout" extends="layout">        
+        <put name="body" value="/tiles/mody.jsp" />        
+          <put name="heading" value="Display Mody Section" />       
+        </definition>  -->
+        
+        <definition name="layout" path="/Emp/layout.jsp">        
+        <put name="header" value="/Emp/header.jsp" />        
+        <put name="footer" value="/Emp/footer.jsp" />
+        <put name="menu" value="/Emp/menu.jsp" />
+        <put name="body"   value="/Emp/body.jsp" />
+          <put name="profile"   value="/Emp/profile.jsp" />
+          <put name="insert"   value="/Emp/insert.jsp" />
+          <put name="mody"   value="/Emp/display.jsp" />
+        <put name="title"   value="Demo application for Tiles" />
+    </definition>
+    
+        <definition name="ilayout" extends="layout">        
+        <put name="body" value="/Emp/insert.jsp" />        
+          <put name="heading" value="Insert Employee Details" />       
+        </definition> 
+        
+        <definition name="blayout" extends="layout">        
+        <put name="body" value="/Emp/body.jsp" />        
+          <put name="heading" value="Home Page" />       
+        </definition> 
+       
+       
+       <definition name="mlayout" extends="layout">        
+        <put name="body" value="/Emp/display.jsp" />        
+          <put name="heading" value="Display Section" />       
+        </definition> 
+       
+       
+  
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>
